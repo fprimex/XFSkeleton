@@ -1,10 +1,12 @@
-﻿using AppKit;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Platform.MacOS;
+using AppKit;
 using Foundation;
 
 namespace XFSkeleton.Mac
 {
     [Register("AppDelegate")]
-    public class AppDelegate : Xamarin.Forms.Platform.MacOS.FormsApplicationDelegate
+    public class AppDelegate : FormsApplicationDelegate
     {
         NSWindow window;
 
@@ -18,16 +20,6 @@ namespace XFSkeleton.Mac
             window.TitleVisibility = NSWindowTitleVisibility.Hidden;
         }
 
-        public override void DidFinishLaunching(NSNotification notification)
-        {
-            // Insert code here to initialize your application
-        }
-
-        public override void WillTerminate(NSNotification notification)
-        {
-            // Insert code here to tear down your application
-        }
-
         public override NSWindow MainWindow
         {
             get { return window; }
@@ -35,7 +27,7 @@ namespace XFSkeleton.Mac
 
         public override void DidFinishLaunching(NSNotification notification)
         {
-            Xamarin.Forms.Forms.Init();
+            Forms.Init();
             LoadApplication(new App());
 
             base.DidFinishLaunching(notification);
